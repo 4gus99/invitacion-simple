@@ -613,7 +613,7 @@ function DressCodeModal({ open, onClose }) {
   return (
     <AnimatePresence>
       <motion.div
-        className="fixed inset-0 z-[140] flex items-center justify-center px-3 sm:px-4 py-4 sm:py-6"
+        className="fixed inset-0 z-[140] flex items-end sm:items-center justify-center px-3 sm:px-4 py-0 sm:py-6"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
@@ -627,11 +627,11 @@ function DressCodeModal({ open, onClose }) {
         />
 
         <motion.div
-          initial={{ opacity: 0, y: 16, scale: 0.985 }}
+          initial={{ opacity: 0, y: 20, scale: 0.99 }}
           animate={{ opacity: 1, y: 0, scale: 1 }}
-          exit={{ opacity: 0, y: 16, scale: 0.985 }}
+          exit={{ opacity: 0, y: 20, scale: 0.99 }}
           transition={{ duration: 0.24 }}
-          className="relative z-10 w-full max-w-3xl max-h-[88vh] overflow-y-auto rounded-[26px] sm:rounded-[30px] border overflow-hidden"
+          className="relative z-10 w-full max-w-3xl max-h-[88vh] overflow-y-auto rounded-t-[26px] sm:rounded-[30px] border overflow-hidden"
           style={{
             borderColor: theme.line,
             background: theme.bandBgSoft,
@@ -649,28 +649,28 @@ function DressCodeModal({ open, onClose }) {
             </button>
 
             <div className="pr-12">
-              <p className="text-[11px] uppercase tracking-[0.30em]" style={{ color: theme.textSoft }}>
+              <p className="text-[10px] sm:text-[11px] uppercase tracking-[0.28em] sm:tracking-[0.30em]" style={{ color: theme.textSoft }}>
                 Dress code
               </p>
-              <h3 className="mt-3 font-serif text-[26px] sm:text-[40px] leading-[1.02]" style={{ color: theme.accentStrong }}>
+              <h3 className="mt-3 font-serif text-[25px] sm:text-[40px] leading-[1.04]" style={{ color: theme.accentStrong }}>
                 Elegante, luminoso y cómodo
               </h3>
-              <p className="mt-3 text-[15px] sm:text-[16px] leading-7" style={{ color: theme.textSoft }}>
+              <p className="mt-3 text-[14px] sm:text-[16px] leading-7" style={{ color: theme.textSoft }}>
                 Queremos una estética cuidada, fresca y natural. La idea es que se sientan lindos, cómodos y en sintonía con el lugar.
               </p>
             </div>
           </div>
 
           <div className="px-4 py-4 sm:px-7 sm:py-6">
-            <div className="grid gap-4 md:grid-cols-2">
+            <div className="grid gap-3 sm:gap-4 md:grid-cols-2">
               <div
-                className="rounded-[22px] sm:rounded-[24px] border px-4 sm:px-5 py-4 sm:py-5"
+                className="rounded-[20px] sm:rounded-[24px] border px-4 sm:px-5 py-4 sm:py-5"
                 style={{ borderColor: theme.line, background: "rgba(255,255,255,0.72)" }}
               >
-                <p className="text-[12px] uppercase tracking-[0.24em]" style={{ color: theme.accentStrong }}>
+                <p className="text-[11px] sm:text-[12px] uppercase tracking-[0.20em] sm:tracking-[0.24em]" style={{ color: theme.accentStrong }}>
                   Sí
                 </p>
-                <ul className="mt-4 space-y-3 text-[15px] sm:text-[16px] leading-7" style={{ color: theme.text }}>
+                <ul className="mt-3 sm:mt-4 space-y-2 sm:space-y-3 text-[14px] sm:text-[16px] leading-7" style={{ color: theme.text }}>
                   <li>• Tonos nude, pasteles, beige y suaves, como lila o lavanda</li>
                   <li>• Telas livianas y cortes elegantes</li>
                   <li>• Calzado cómodo para exterior</li>
@@ -678,13 +678,13 @@ function DressCodeModal({ open, onClose }) {
               </div>
 
               <div
-                className="rounded-[22px] sm:rounded-[24px] border px-4 sm:px-5 py-4 sm:py-5"
+                className="rounded-[20px] sm:rounded-[24px] border px-4 sm:px-5 py-4 sm:py-5"
                 style={{ borderColor: theme.line, background: "rgba(255,255,255,0.72)" }}
               >
-                <p className="text-[12px] uppercase tracking-[0.24em]" style={{ color: theme.accentStrong }}>
+                <p className="text-[11px] sm:text-[12px] uppercase tracking-[0.20em] sm:tracking-[0.24em]" style={{ color: theme.accentStrong }}>
                   Mejor evitar
                 </p>
-                <ul className="mt-4 space-y-3 text-[15px] sm:text-[16px] leading-7" style={{ color: theme.text }}>
+                <ul className="mt-3 sm:mt-4 space-y-2 sm:space-y-3 text-[14px] sm:text-[16px] leading-7" style={{ color: theme.text }}>
                   <li>• Looks demasiado deportivos</li>
                   <li>• Prendas incómodas para un día largo</li>
                   <li>• Calzado poco práctico para terreno natural</li>
@@ -693,7 +693,7 @@ function DressCodeModal({ open, onClose }) {
             </div>
 
             <div
-              className="mt-4 rounded-[20px] sm:rounded-[22px] border px-4 sm:px-5 py-4"
+              className="mt-3 sm:mt-4 rounded-[18px] sm:rounded-[22px] border px-4 sm:px-5 py-4"
               style={{ borderColor: theme.line, background: "rgba(255,255,255,0.52)" }}
             >
               <p className="text-[14px] sm:text-[15px] leading-7" style={{ color: theme.textSoft }}>
@@ -1094,19 +1094,10 @@ export default function App() {
               subtitle="Formal"
             />
 
-            <div className="mt-8 flex justify-center px-4">
-              <button
-                type="button"
-                onClick={() => setShowDressCodeModal(true)}
-                className="w-full sm:w-auto max-w-[320px] inline-flex items-center justify-center border px-6 py-4 text-[14px] sm:text-[14px] uppercase tracking-[0.08em] transition-colors"
-                style={{
-                  borderColor: theme.accentMuted,
-                  color: theme.accentMuted,
-                  background: "rgba(255,255,255,0.72)",
-                }}
-              >
+            <div className="mt-8">
+              <OutlineButton as="button" onClick={() => setShowDressCodeModal(true)}>
                 Ver detalles del dress code
-              </button>
+              </OutlineButton>
             </div>
           </div>
         </Reveal>
