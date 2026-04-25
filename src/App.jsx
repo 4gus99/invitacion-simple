@@ -12,7 +12,7 @@ import {
   Gift,
 } from "lucide-react";
 
-const EVENT_DATE = new Date("2027-01-14T18:00:00");
+const EVENT_DATE = new Date("2027-01-09T11:00:00");
 
 const RSVP_PHONE_BRIDE = "5492901309424";
 const RSVP_PHONE_GROOM = "5492901403076";
@@ -718,7 +718,7 @@ function DressCodeModal({ open, onClose }) {
 export default function App() {
   const [countdown, setCountdown] = useState(getCountdown(EVENT_DATE));
   const [musicOn, setMusicOn] = useState(false);
-  const [hasEntered, setHasEntered] = useState(false);
+  const [hasEntered, setHasEntered] = useState(true);
   const [showPayment, setShowPayment] = useState(false);
   const [showLodging, setShowLodging] = useState(false);
   const [showMobileCta, setShowMobileCta] = useState(false);
@@ -1012,25 +1012,24 @@ export default function App() {
               </h1>
 
               <p className="uppercase tracking-[0.35em] text-[11px] sm:text-xs text-white/78 mt-3">
-                14 de enero · Mendoza
+                12 de enero · Mendoza
               </p>
             </div>
           </Reveal>
 
           <Reveal delay={0.08}>
             <div className="w-full mt-auto pb-4 sm:pb-6">
-              <div className="grid grid-cols-4 gap-2 sm:gap-4 max-w-[560px] justify-items-stretch">
+              <div className="grid grid-cols-4 gap-2 sm:gap-4 w-full justify-items-stretch">
                 <CountBox label="Días" value={pad(countdown.days)} />
                 <CountBox label="Horas" value={pad(countdown.hours)} />
                 <CountBox label="Minutos" value={pad(countdown.minutes)} />
                 <CountBox label="Segundos" value={pad(countdown.seconds)} />
               </div>
 
-              <div className="mt-5 sm:mt-6 flex flex-col sm:flex-row gap-3">
+              <div className="mt-5 sm:mt-6 flex flex-col gap-3 w-full">
                 <a
                   href="#rsvp"
-                  className="inline-flex items-center justify-center rounded-full px-6 py-4 text-[15px] sm:text-base font-semibold text-white hover:scale-[1.02] transition-transform shadow-[0_18px_44px_rgba(32,20,47,0.22)]"
-                  style={{ background: theme.accentStrong }}
+                  className="w-full inline-flex items-center justify-center rounded-full bg-white text-black px-6 py-4 text-[15px] sm:text-base font-semibold hover:scale-[1.02] transition-transform"
                 >
                   Confirmar asistencia
                 </a>
@@ -1039,7 +1038,7 @@ export default function App() {
                   href={CEREMONY_MAP_URL}
                   target="_blank"
                   rel="noreferrer"
-                  className="inline-flex items-center justify-center rounded-full border border-white/30 text-white px-6 py-4 text-[15px] sm:text-base font-medium bg-white/10 backdrop-blur-sm hover:bg-white/16 transition-colors"
+                  className="w-full inline-flex items-center justify-center rounded-full border border-white/24 text-white px-6 py-4 text-[15px] sm:text-base font-medium bg-white/8 backdrop-blur-sm hover:bg-white/12 transition-colors"
                 >
                   Ver ubicación
                 </a>
