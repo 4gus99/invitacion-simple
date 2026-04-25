@@ -137,34 +137,27 @@ function Reveal({ children, delay = 0 }) {
 }
 
 function CountBox({ value, label }) {
-  const safeLabelSpacing = label.length >= 7 ? "0.04em" : "0.12em";
-
   return (
     <div
-      className="flex min-w-0 flex-col items-center justify-center rounded-[28px] px-1 text-center backdrop-blur-xl h-[124px] overflow-hidden"
+      className="h-[124px] rounded-[30px] px-2 text-center backdrop-blur-md flex flex-col items-center justify-center"
       style={{
-        background: "rgba(255,255,255,0.88)",
-        border: `1px solid rgba(67,37,83,0.12)`,
-        boxShadow: "0 14px 38px rgba(32, 20, 47, 0.10)",
+        background: "linear-gradient(180deg, rgba(255,255,255,0.94) 0%, rgba(247,241,251,0.88) 100%)",
+        border: `1px solid ${theme.line}`,
+        boxShadow: "0 14px 34px rgba(32, 20, 47, 0.14)",
       }}
     >
-      <div
-        className="font-serif text-[34px] leading-none"
-        style={{ color: "#432953", letterSpacing: "0.02em" }}
-      >
+      <div className="font-serif text-[29px] leading-none" style={{ color: theme.text }}>
         {value}
       </div>
-
       <div
-        className="mt-2 max-w-full whitespace-nowrap text-[7.5px] uppercase leading-none"
-        style={{ color: "#7d6193", letterSpacing: safeLabelSpacing }}
+        className="mt-2 text-[8px] uppercase leading-none text-center"
+        style={{ color: theme.textSoft, letterSpacing: "0.18em" }}
       >
         {label}
       </div>
     </div>
   );
 }
-
 
 function FloatingPetals() {
   const petals = [
@@ -622,7 +615,7 @@ function DressCodeModal({ open, onClose }) {
   return (
     <AnimatePresence>
       <motion.div
-        className="fixed inset-0 z-[140] flex items-end sm:items-center justify-center px-0 sm:px-4 py-0 sm:py-6"
+        className="fixed inset-0 z-[140] flex items-center justify-center px-4 py-6"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
@@ -636,85 +629,77 @@ function DressCodeModal({ open, onClose }) {
         />
 
         <motion.div
-          initial={{ opacity: 0, y: 28, scale: 0.99 }}
+          initial={{ opacity: 0, y: 16, scale: 0.985 }}
           animate={{ opacity: 1, y: 0, scale: 1 }}
-          exit={{ opacity: 0, y: 28, scale: 0.99 }}
-          transition={{ duration: 0.22 }}
-          className="relative z-10 w-full max-w-2xl max-h-[86vh] overflow-y-auto rounded-t-[28px] sm:rounded-[30px] border overflow-hidden"
+          exit={{ opacity: 0, y: 16, scale: 0.985 }}
+          transition={{ duration: 0.24 }}
+          className="relative z-10 w-full max-w-3xl rounded-[30px] border overflow-hidden"
           style={{
             borderColor: theme.line,
-            background: "linear-gradient(180deg, rgba(255,255,255,0.96) 0%, rgba(247,240,252,0.98) 100%)",
+            background: theme.bandBgSoft,
             boxShadow: theme.softShadow,
           }}
         >
-          <div className="px-4 py-4 sm:px-7 sm:py-6 border-b" style={{ borderColor: theme.line }}>
+          <div className="px-5 py-5 sm:px-7 sm:py-6 border-b" style={{ borderColor: theme.line }}>
             <button
               type="button"
               onClick={onClose}
-              className="absolute right-3 top-3 sm:right-4 sm:top-4 inline-flex h-9 w-9 sm:h-10 sm:w-10 items-center justify-center rounded-full border text-lg"
-              style={{ borderColor: theme.line, color: theme.accentStrong, background: "rgba(255,255,255,0.88)" }}
+              className="absolute right-4 top-4 inline-flex h-10 w-10 items-center justify-center rounded-full border text-lg"
+              style={{ borderColor: theme.line, color: theme.accentStrong, background: "rgba(255,255,255,0.78)" }}
             >
               ×
             </button>
 
-            <div className="pr-10">
-              <p className="text-[10px] sm:text-[11px] uppercase tracking-[0.30em]" style={{ color: theme.textSoft }}>
+            <div className="pr-12">
+              <p className="text-[11px] uppercase tracking-[0.30em]" style={{ color: theme.textSoft }}>
                 Dress code
               </p>
-              <h3 className="mt-3 font-serif text-[28px] sm:text-[38px] leading-[1.04]" style={{ color: theme.accentStrong }}>
-                Formal y delicado
+              <h3 className="mt-3 font-serif text-[30px] sm:text-[40px] leading-[1.02]" style={{ color: theme.accentStrong }}>
+                Elegante, luminoso y cómodo
               </h3>
-              <p className="mt-3 text-[14px] sm:text-[15px] leading-7" style={{ color: theme.textSoft }}>
-                Queremos una estética elegante, fresca y natural, pensada para una celebración de día.
+              <p className="mt-3 text-[15px] sm:text-[16px] leading-7" style={{ color: theme.textSoft }}>
+                Queremos una estética cuidada, fresca y natural. La idea es que se sientan lindos, cómodos y en sintonía con el lugar.
               </p>
             </div>
           </div>
 
-          <div className="px-4 py-4 sm:px-7 sm:py-6">
-            <div className="grid gap-3">
+          <div className="px-5 py-5 sm:px-7 sm:py-6">
+            <div className="grid gap-4 md:grid-cols-2">
               <div
-                className="rounded-[20px] border px-4 py-4"
-                style={{ borderColor: theme.line, background: "rgba(255,255,255,0.84)" }}
+                className="rounded-[24px] border px-5 py-5"
+                style={{ borderColor: theme.line, background: "rgba(255,255,255,0.72)" }}
               >
-                <p className="text-[11px] uppercase tracking-[0.22em]" style={{ color: theme.accentStrong }}>
-                  Sugerido
+                <p className="text-[12px] uppercase tracking-[0.24em]" style={{ color: theme.accentStrong }}>
+                  Sí
                 </p>
-                <p className="mt-2 text-[14px] sm:text-[15px] leading-7" style={{ color: theme.text }}>
-                  Tonos nude, pasteles, beige, lavanda o colores suaves.
-                </p>
+                <ul className="mt-4 space-y-3 text-[15px] sm:text-[16px] leading-7" style={{ color: theme.text }}>
+                  <li>• Tonos nude, pasteles, beige y suaves, como lila o lavanda</li>
+                  <li>• Telas livianas y cortes elegantes</li>
+                  <li>• Calzado cómodo para exterior</li>
+                </ul>
               </div>
 
               <div
-                className="rounded-[20px] border px-4 py-4"
-                style={{ borderColor: theme.line, background: "rgba(255,255,255,0.84)" }}
+                className="rounded-[24px] border px-5 py-5"
+                style={{ borderColor: theme.line, background: "rgba(255,255,255,0.72)" }}
               >
-                <p className="text-[11px] uppercase tracking-[0.22em]" style={{ color: theme.accentStrong }}>
-                  Prioridad
-                </p>
-                <p className="mt-2 text-[14px] sm:text-[15px] leading-7" style={{ color: theme.text }}>
-                  Verse elegante pero sentirse cómodo durante toda la ceremonia.
-                </p>
-              </div>
-
-              <div
-                className="rounded-[20px] border px-4 py-4"
-                style={{ borderColor: theme.line, background: "rgba(255,255,255,0.84)" }}
-              >
-                <p className="text-[11px] uppercase tracking-[0.22em]" style={{ color: theme.accentStrong }}>
+                <p className="text-[12px] uppercase tracking-[0.24em]" style={{ color: theme.accentStrong }}>
                   Mejor evitar
                 </p>
-                <p className="mt-2 text-[14px] sm:text-[15px] leading-7" style={{ color: theme.text }}>
-                  Ropa deportiva, looks demasiado informales o calzado incómodo para exterior.
-                </p>
+                <ul className="mt-4 space-y-3 text-[15px] sm:text-[16px] leading-7" style={{ color: theme.text }}>
+                  <li>• Looks demasiado deportivos</li>
+                  <li>• Prendas incómodas para un día largo</li>
+                  <li>• Calzado poco práctico para terreno natural</li>
+                </ul>
               </div>
             </div>
 
             <div
-              className="mt-4 rounded-[18px] border px-4 py-4"
-              style={{ borderColor: theme.line, background: "rgba(255,255,255,0.60)" }}
+              className="mt-4 rounded-[22px] border px-5 py-4"
+              style={{ borderColor: theme.line, background: "rgba(255,255,255,0.52)" }}
             >
-              <p className="text-[13px] sm:text-[14px] leading-7" style={{ color: theme.textSoft }}>
-                La idea es mantener una estética armónica con el entorno y la celebración.
+              <p className="text-[14px] sm:text-[15px] leading-7" style={{ color: theme.textSoft }}>
+                Mendoza en enero puede ser cálido, así que conviene priorizar frescura y comodidad sin perder elegancia.
               </p>
             </div>
           </div>
@@ -747,17 +732,6 @@ export default function App() {
   useEffect(() => {
     const interval = setInterval(() => setCountdown(getCountdown(EVENT_DATE)), 1000);
     return () => clearInterval(interval);
-  }, []);
-
-  useEffect(() => {
-    let link = document.querySelector('link[rel="icon"]');
-    if (!link) {
-      link = document.createElement("link");
-      link.rel = "icon";
-      document.head.appendChild(link);
-    }
-    link.type = "image/gif";
-    link.href = "/favicon.gif";
   }, []);
 
   useEffect(() => {
@@ -844,7 +818,7 @@ export default function App() {
 
   const whatsappMessage = useMemo(() => {
     return encodeURIComponent(
-      `Hola! Confirmo mi asistencia a la ceremonia boda.\n\nNombre: ${form.nombre || "-"}\nCanción sugerida: ${form.cancion || "-"}\nRestricciones alimentarias: ${form.restricciones || "Ninguna"}\nMensaje: ${form.mensaje || "-"}`
+      `Hola! Confirmo mi asistencia a la fiesta ceremonial .\n\nNombre: ${form.nombre || "-"}\nGénero: ${form.genero || "-"}\nCanción sugerida: ${form.cancion || "-"}\nRestricciones alimentarias: ${form.restricciones || "Ninguna"}\nMensaje: ${form.mensaje || "-"}`
     );
   }, [form]);
 
@@ -964,38 +938,31 @@ export default function App() {
         ) : null}
       </AnimatePresence>
 
-      <header className="fixed inset-x-0 top-0 z-40 px-6 pt-9">
+      <header className="fixed top-0 inset-x-0 z-40 px-4 pt-10 sm:px-5 sm:pt-5">
         <div
-          className="mx-auto flex max-w-7xl items-center justify-between gap-3 rounded-full border px-6 py-4 backdrop-blur-xl"
+          className="max-w-7xl mx-auto rounded-full pl-6 pr-3 h-[88px] sm:px-5 sm:py-3 border backdrop-blur-xl flex items-center justify-between gap-3 shadow-[0_14px_34px_rgba(31,20,46,0.10)]"
           style={{
-            background: "rgba(255,255,255,0.62)",
-            borderColor: "rgba(67,37,83,0.12)",
+            background: "rgba(255,255,255,0.58)",
+            borderColor: theme.line,
           }}
         >
-          <div className="flex min-w-0 items-center gap-3">
-            <Heart size={22} color="#5d3f75" strokeWidth={1.9} />
-            <span
-              className="truncate text-[18px]"
-              style={{ color: "#5d3f75" }}
-            >
-              Rodo & Vicky
-            </span>
+          <div className="flex items-center gap-3 min-w-0">
+            <Heart size={18} color={theme.accentStrong} />
+            <span className="font-serif text-[24px] sm:text-[28px] tracking-[0.02em] truncate" style={{ color: theme.accentStrong }}>Rodo & Vicky</span>
           </div>
 
           <div className="flex items-center gap-2">
             <button
-              type="button"
               onClick={toggleMusic}
-              className="flex h-[56px] w-[56px] shrink-0 items-center justify-center rounded-full border transition-transform hover:scale-[1.02]"
+              className="w-[62px] h-[62px] rounded-full border flex items-center justify-center hover:scale-[1.02] transition-transform"
               style={{
-                background: "rgba(255,255,255,0.86)",
-                borderColor: "rgba(67,37,83,0.12)",
-                color: "#5d3f75",
+                background: "rgba(255,255,255,0.82)",
+                borderColor: theme.line,
               }}
               aria-label={musicOn ? "Silenciar música" : "Activar música"}
               title={musicOn ? "Silenciar música" : "Activar música"}
             >
-              {musicOn ? <Volume2 size={22} /> : <VolumeX size={22} />}
+              {musicOn ? <Volume2 size={18} /> : <VolumeX size={18} />}
             </button>
           </div>
         </div>
@@ -1003,7 +970,7 @@ export default function App() {
 
       <section
         ref={heroRef}
-        className="relative h-[100svh] overflow-hidden"
+        className="relative h-[100svh] min-h-[100svh] px-4 sm:px-6 pt-0 pb-0 overflow-hidden"
       >
         <div
           className="absolute inset-0"
@@ -1015,44 +982,38 @@ export default function App() {
         />
         <div
           className="absolute inset-0"
-          style={{ backgroundColor: "rgba(67,37,83,0.40)" }}
+          style={{ background: 'linear-gradient(180deg, rgba(44,29,59,0.30) 0%, rgba(61,42,82,0.42) 68%, rgba(61,42,82,0.48) 100%)' }}
         />
 
         <FloatingPetals />
 
-        <div className="relative z-10 h-[100svh] w-full">
+        <div className="relative z-10 max-w-7xl mx-auto h-[100svh] flex flex-col">
           <Reveal>
-            <div className="absolute left-[28px] right-[28px] top-[132px]">
-              <h1
-                className="font-serif text-white font-[600] whitespace-nowrap"
-                style={{
-                  fontSize: "42px",
-                  lineHeight: 0.9,
-                  letterSpacing: "0.01em",
-                }}
-              >
+            <div className="pt-[150px] sm:pt-6">
+              <h1 className="font-serif whitespace-nowrap text-[72px] leading-[0.9] tracking-[-0.01em] sm:text-[88px] md:text-[128px] text-white font-[600]">
                 Rodo & Vicky
               </h1>
 
-              <p className="mt-2 whitespace-nowrap uppercase text-[11px] text-white/70" style={{ letterSpacing: "0.30em" }}>
+              <p className="uppercase text-[13px] text-white/78 mt-2 ml-[2px]" style={{ letterSpacing: '0.34em' }}>
                 12 de enero · Mendoza
               </p>
             </div>
           </Reveal>
 
           <Reveal delay={0.08}>
-            <div className="absolute left-[28px] right-[28px] bottom-[max(10px,env(safe-area-inset-bottom))]">
-              <div className="grid w-full grid-cols-4 gap-[12px]">
-                <CountBox label="Días" value={pad(countdown.days)} />
-                <CountBox label="Horas" value={pad(countdown.hours)} />
-                <CountBox label="Minutos" value={pad(countdown.minutes)} />
-                <CountBox label="Segundos" value={pad(countdown.seconds)} />
+            <div className="w-full mt-auto pb-[14px] sm:pb-6">
+              <div className="grid grid-cols-4 gap-3 justify-items-stretch">
+                <CountBox label="DÍAS" value={pad(countdown.days)} />
+                <CountBox label="HORAS" value={pad(countdown.hours)} />
+                <CountBox label="MINUTOS" value={pad(countdown.minutes)} />
+                <CountBox label="SEGUNDOS" value={pad(countdown.seconds)} />
               </div>
 
-              <div className="mt-[12px] flex flex-col gap-[12px]">
+              <div className="mt-4 flex flex-col gap-3">
                 <a
                   href="#rsvp"
-                  className="inline-flex h-[86px] w-full items-center justify-center rounded-full bg-white px-6 text-[18px] font-semibold text-black transition-transform hover:scale-[1.02]"
+                  className="inline-flex w-full items-center justify-center rounded-full px-6 h-[86px] text-[17px] font-semibold text-black hover:scale-[1.01] transition-transform"
+                  style={{ background: 'rgba(255,255,255,0.96)', boxShadow: '0 18px 44px rgba(32,20,47,0.16)' }}
                 >
                   Confirmar asistencia
                 </a>
@@ -1061,7 +1022,8 @@ export default function App() {
                   href={CEREMONY_MAP_URL}
                   target="_blank"
                   rel="noreferrer"
-                  className="inline-flex h-[84px] w-full items-center justify-center rounded-full border border-white/24 bg-white/8 px-6 text-[18px] font-medium text-white backdrop-blur-md transition-colors hover:bg-white/12"
+                  className="inline-flex w-full items-center justify-center rounded-full border text-white h-[86px] text-[16px] font-medium bg-white/10 backdrop-blur-sm hover:bg-white/12 transition-colors"
+                  style={{ borderColor: 'rgba(255,255,255,0.34)' }}
                 >
                   Ver ubicación
                 </a>
@@ -1135,20 +1097,10 @@ export default function App() {
               subtitle="Formal"
             />
 
-            <div className="mt-8 flex justify-center px-4">
-              <button
-                type="button"
-                onClick={() => setShowDressCodeModal(true)}
-                className="w-full sm:w-auto max-w-[320px] inline-flex items-center justify-center rounded-full border px-6 py-4 text-[13px] sm:text-[14px] uppercase tracking-[0.14em] transition-all hover:-translate-y-[1px]"
-                style={{
-                  borderColor: theme.accentMuted,
-                  color: theme.accentStrong,
-                  background: "rgba(255,255,255,0.72)",
-                  boxShadow: "0 14px 34px rgba(95,63,120,0.08)",
-                }}
-              >
+            <div className="mt-8">
+              <OutlineButton as="button" onClick={() => setShowDressCodeModal(true)}>
                 Ver detalles del dress code
-              </button>
+              </OutlineButton>
             </div>
           </div>
         </Reveal>
