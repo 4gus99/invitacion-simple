@@ -137,27 +137,25 @@ function Reveal({ children, delay = 0 }) {
 }
 
 function CountBox({ value, label }) {
-  const safeLabelSpacing = label.length >= 7 ? "0.04em" : "0.12em";
-
   return (
     <div
-      className="flex min-w-0 flex-col items-center justify-center rounded-[28px] px-1 text-center backdrop-blur-xl h-[124px] overflow-hidden"
+      className="flex min-w-0 flex-col items-center justify-center rounded-[28px] px-1 text-center backdrop-blur-xl h-[96px] overflow-hidden"
       style={{
-        background: "rgba(255,255,255,0.88)",
+        background: "rgba(255,255,255,0.90)",
         border: `1px solid rgba(67,37,83,0.12)`,
-        boxShadow: "0 14px 38px rgba(32, 20, 47, 0.10)",
+        boxShadow: "0 12px 30px rgba(32, 20, 47, 0.08)",
       }}
     >
       <div
-        className="font-serif text-[34px] leading-none"
-        style={{ color: "#432953", letterSpacing: "0.02em" }}
+        className="font-serif text-[30px] leading-none"
+        style={{ color: "#432953", letterSpacing: "0.01em" }}
       >
         {value}
       </div>
 
       <div
-        className="mt-2 max-w-full whitespace-nowrap text-[7.5px] uppercase leading-none"
-        style={{ color: "#7d6193", letterSpacing: safeLabelSpacing }}
+        className="mt-[7px] max-w-full whitespace-nowrap text-[7.5px] uppercase leading-none"
+        style={{ color: "#7d6193", letterSpacing: "0.06em" }}
       >
         {label}
       </div>
@@ -964,9 +962,9 @@ export default function App() {
         ) : null}
       </AnimatePresence>
 
-      <header className="fixed inset-x-0 top-0 z-40 px-6 pt-8">
+      <header className="fixed inset-x-0 top-0 z-40 px-[24px] pt-[18px]">
         <div
-          className="mx-auto flex max-w-7xl items-center justify-between gap-3 rounded-full border px-6 py-4 backdrop-blur-xl"
+          className="mx-auto flex max-w-7xl items-center justify-between gap-3 rounded-full border px-[26px] py-[14px] backdrop-blur-xl"
           style={{
             background: "rgba(255,255,255,0.62)",
             borderColor: "rgba(67,37,83,0.12)",
@@ -975,7 +973,7 @@ export default function App() {
           <div className="flex min-w-0 items-center gap-3">
             <Heart size={22} color="#5d3f75" strokeWidth={1.9} />
             <span
-              className="truncate text-[18px]"
+              className="truncate text-[20px]"
               style={{ color: "#5d3f75" }}
             >
               Rodo & Vicky
@@ -986,7 +984,7 @@ export default function App() {
             <button
               type="button"
               onClick={toggleMusic}
-              className="flex h-[56px] w-[56px] shrink-0 items-center justify-center rounded-full border transition-transform hover:scale-[1.02]"
+              className="flex h-[64px] w-[64px] shrink-0 items-center justify-center rounded-full border transition-transform hover:scale-[1.02]"
               style={{
                 background: "rgba(255,255,255,0.86)",
                 borderColor: "rgba(67,37,83,0.12)",
@@ -995,7 +993,7 @@ export default function App() {
               aria-label={musicOn ? "Silenciar música" : "Activar música"}
               title={musicOn ? "Silenciar música" : "Activar música"}
             >
-              {musicOn ? <Volume2 size={22} /> : <VolumeX size={22} />}
+              {musicOn ? <Volume2 size={24} /> : <VolumeX size={24} />}
             </button>
           </div>
         </div>
@@ -1003,7 +1001,7 @@ export default function App() {
 
       <section
         ref={heroRef}
-        className="relative h-[100svh] overflow-hidden"
+        className="relative h-[100dvh] min-h-[100dvh] overflow-hidden"
       >
         <div
           className="absolute inset-0"
@@ -1020,39 +1018,45 @@ export default function App() {
 
         <FloatingPetals />
 
-        <div className="relative z-10 h-[100svh] w-full">
+        <div className="relative z-10 h-[100dvh] min-h-[100dvh] w-full">
           <Reveal>
-            <div className="absolute left-[28px] right-[28px] top-[102px]">
+            <div className="absolute left-[24px] right-[24px] top-[102px]">
               <h1
-                className="font-serif text-white font-[600] whitespace-nowrap"
+                className="font-serif whitespace-nowrap text-white font-[600]"
                 style={{
-                  fontSize: "40px",
-                  lineHeight: 0.9,
-                  letterSpacing: "0.01em",
+                  fontSize: "clamp(3.1rem, 13.6vw, 4rem)",
+                  lineHeight: 0.88,
+                  letterSpacing: "-0.01em",
                 }}
               >
                 Rodo & Vicky
               </h1>
 
-              <p className="mt-1 whitespace-nowrap uppercase text-[10px] text-white/70" style={{ letterSpacing: "0.30em" }}>
+              <p
+                className="mt-[6px] whitespace-nowrap uppercase text-white/72"
+                style={{ fontSize: "10.5px", letterSpacing: "0.24em" }}
+              >
                 12 de enero · Mendoza
               </p>
             </div>
           </Reveal>
 
           <Reveal delay={0.08}>
-            <div className="absolute left-[28px] right-[28px] bottom-0" style={{ paddingBottom: "calc(env(safe-area-inset-bottom) + 4px)" }}>
-              <div className="grid w-full grid-cols-4 gap-[10px]">
+            <div
+              className="absolute left-[24px] right-[24px]"
+              style={{ bottom: "calc(env(safe-area-inset-bottom) + 2px)" }}
+            >
+              <div className="grid w-full grid-cols-4 gap-[8px]">
                 <CountBox label="Días" value={pad(countdown.days)} />
                 <CountBox label="Horas" value={pad(countdown.hours)} />
                 <CountBox label="Minutos" value={pad(countdown.minutes)} />
                 <CountBox label="Segundos" value={pad(countdown.seconds)} />
               </div>
 
-              <div className="mt-[10px] flex flex-col gap-[10px]">
+              <div className="mt-[8px] flex flex-col gap-[8px]">
                 <a
                   href="#rsvp"
-                  className="inline-flex h-[84px] w-full items-center justify-center rounded-full bg-white px-6 text-[18px] font-semibold text-black transition-transform hover:scale-[1.02]"
+                  className="inline-flex h-[66px] w-full items-center justify-center rounded-full bg-white px-6 text-[17px] font-semibold text-black transition-transform hover:scale-[1.02]"
                 >
                   Confirmar asistencia
                 </a>
@@ -1061,7 +1065,7 @@ export default function App() {
                   href={CEREMONY_MAP_URL}
                   target="_blank"
                   rel="noreferrer"
-                  className="inline-flex h-[82px] w-full items-center justify-center rounded-full border border-white/24 bg-white/8 px-6 text-[18px] font-medium text-white backdrop-blur-md transition-colors hover:bg-white/12"
+                  className="inline-flex h-[64px] w-full items-center justify-center rounded-full border border-white/24 bg-white/8 px-6 text-[16px] font-medium text-white backdrop-blur-md transition-colors hover:bg-white/12"
                 >
                   Ver ubicación
                 </a>
