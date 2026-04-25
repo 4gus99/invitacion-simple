@@ -137,25 +137,27 @@ function Reveal({ children, delay = 0 }) {
 }
 
 function CountBox({ value, label }) {
+  const safeLabelSpacing = label.length >= 7 ? "0.08em" : "0.16em";
+
   return (
     <div
-      className="min-w-0 h-[92px] sm:h-[118px] rounded-[26px] sm:rounded-[28px] px-1 py-3 sm:px-2 sm:py-4 text-center backdrop-blur-xl flex flex-col items-center justify-center overflow-hidden"
+      className="flex min-w-0 flex-col items-center justify-center rounded-[22px] px-1 text-center backdrop-blur-xl h-[92px] sm:h-auto sm:min-h-[160px] sm:rounded-[20px] sm:px-4 sm:py-5"
       style={{
         background: "rgba(255,255,255,0.86)",
-        border: `1px solid rgba(255,255,255,0.42)`,
-        boxShadow: "0 16px 42px rgba(32, 20, 47, 0.14)",
+        border: `1px solid rgba(67,37,83,0.12)`,
+        boxShadow: "0 14px 38px rgba(32, 20, 47, 0.10)",
       }}
     >
       <div
-        className="font-serif text-[37px] sm:text-[42px] md:text-[50px] leading-none"
-        style={{ color: "#432953" }}
+        className="font-serif text-[38px] leading-none sm:text-[42px] md:text-[42px]"
+        style={{ color: "#432953", letterSpacing: "0.03em" }}
       >
         {value}
       </div>
 
       <div
-        className="mt-2 text-[8px] sm:text-[10px] uppercase tracking-[0.09em] sm:tracking-[0.16em] leading-none whitespace-nowrap max-w-full"
-        style={{ color: "#7d6193" }}
+        className="mt-2 max-w-full whitespace-nowrap text-[9px] uppercase leading-none sm:text-[11px]"
+        style={{ color: "#7d6193", letterSpacing: safeLabelSpacing }}
       >
         {label}
       </div>
@@ -964,59 +966,53 @@ export default function App() {
 
       <header className="fixed top-0 inset-x-0 z-40 px-6 pt-5 sm:px-5 sm:pt-5">
         <div
-          className="mx-auto max-w-7xl rounded-full h-[64px] sm:h-[68px] px-5 sm:px-5 border backdrop-blur-xl flex items-center justify-between gap-3"
+          className="mx-auto flex max-w-7xl items-center justify-between gap-3 rounded-full border px-6 py-4 backdrop-blur-xl sm:px-4 sm:py-3"
           style={{
-            background: "rgba(255,255,255,0.72)",
+            background: "rgba(255,255,255,0.62)",
             borderColor: "rgba(67,37,83,0.12)",
-            boxShadow: "0 12px 34px rgba(31,20,46,0.08)",
           }}
         >
-          <div className="flex items-center gap-3 min-w-0">
-            <Heart size={19} color="#5d3f75" />
+          <div className="flex min-w-0 items-center gap-3">
+            <Heart size={22} color="#5d3f75" strokeWidth={1.9} />
             <span
-              className="text-[17px] sm:text-[18px] truncate"
-              style={{
-                color: "#432953",
-                fontFamily: "Montserrat, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif",
-                letterSpacing: "0",
-                fontWeight: 400,
-              }}
+              className="truncate text-[18px] sm:text-[40px]"
+              style={{ color: "#5d3f75" }}
             >
               Rodo & Vicky
             </span>
           </div>
 
-          <button
-            type="button"
-            onClick={toggleMusic}
-            className="w-[52px] h-[52px] sm:w-[54px] sm:h-[54px] rounded-full border flex items-center justify-center hover:scale-[1.02] transition-transform shrink-0"
-            style={{
-              background: "rgba(255,255,255,0.92)",
-              borderColor: "rgba(67,37,83,0.10)",
-              boxShadow: "0 10px 24px rgba(31,20,46,0.08)",
-              color: "#5d3f75",
-            }}
-            aria-label={musicOn ? "Silenciar música" : "Activar música"}
-            title={musicOn ? "Silenciar música" : "Activar música"}
-          >
-            {musicOn ? <Volume2 size={22} /> : <VolumeX size={22} />}
-          </button>
+          <div className="flex items-center gap-2">
+            <button
+              type="button"
+              onClick={toggleMusic}
+              className="flex h-[56px] w-[56px] shrink-0 items-center justify-center rounded-full border transition-transform hover:scale-[1.02] sm:h-10 sm:w-10"
+              style={{
+                background: "rgba(255,255,255,0.86)",
+                borderColor: "rgba(67,37,83,0.12)",
+                color: "#5d3f75",
+              }}
+              aria-label={musicOn ? "Silenciar música" : "Activar música"}
+              title={musicOn ? "Silenciar música" : "Activar música"}
+            >
+              {musicOn ? <Volume2 size={22} /> : <VolumeX size={22} />}
+            </button>
+          </div>
         </div>
       </header>
 
       <section
         ref={heroRef}
-        className="relative h-[100svh] min-h-[680px] px-0 overflow-hidden"
+        className="relative min-h-[100svh] overflow-hidden px-[30px] pb-[18px] sm:px-6 sm:pb-6"
       >
         <div
           className="absolute inset-0"
           style={{
             backgroundImage: "url(/images/wedding/aero.jpg)",
             backgroundSize: "cover",
-            backgroundPosition: "center center",
+            backgroundPosition: "center",
           }}
         />
-
         <div
           className="absolute inset-0"
           style={{ backgroundColor: "rgba(67,37,83,0.40)" }}
@@ -1024,43 +1020,42 @@ export default function App() {
 
         <FloatingPetals />
 
-        <div className="relative z-10 h-full max-w-7xl mx-auto px-[30px] sm:px-6">
+        <div className="relative z-10 mx-auto flex min-h-[100svh] w-full max-w-7xl flex-col">
           <Reveal>
-            <div className="pt-[178px] sm:pt-[150px] md:pt-[170px]">
+            <div
+              className="max-w-full sm:max-w-3xl"
+              style={{ paddingTop: "clamp(136px, 18svh, 210px)" }}
+            >
               <h1
-                className="font-serif whitespace-nowrap text-white font-[600]"
+                className="font-serif text-white font-[600] whitespace-nowrap"
                 style={{
-                  fontSize: "clamp(56px, 17vw, 72px)",
-                  lineHeight: "0.9",
+                  fontSize: "clamp(46px, 12.6vw, 118px)",
+                  lineHeight: 0.9,
                   letterSpacing: "0.02em",
                 }}
               >
                 Rodo & Vicky
               </h1>
 
-              <p className="mt-3 uppercase tracking-[0.35em] text-[11px] sm:text-xs text-white/70 whitespace-nowrap">
+              <p className="mt-2 whitespace-nowrap uppercase text-[11px] text-white/70 sm:text-xs" style={{ letterSpacing: "0.35em" }}>
                 12 de enero · Mendoza
               </p>
             </div>
           </Reveal>
 
           <Reveal delay={0.08}>
-            <div className="absolute left-0 right-0 bottom-[22px] px-[30px] sm:px-6">
-              <div className="grid grid-cols-4 gap-[14px] sm:gap-4 w-full max-w-[560px] mx-auto">
-                <CountBox label="DÍAS" value={pad(countdown.days)} />
-                <CountBox label="HORAS" value={pad(countdown.hours)} />
-                <CountBox label="MINUTOS" value={pad(countdown.minutes)} />
-                <CountBox label="SEGUNDOS" value={pad(countdown.seconds)} />
+            <div className="mt-auto w-full pb-[max(16px,env(safe-area-inset-bottom))] sm:pb-2">
+              <div className="grid w-full grid-cols-4 gap-[14px] sm:max-w-[560px] sm:gap-4">
+                <CountBox label="Días" value={pad(countdown.days)} />
+                <CountBox label="Horas" value={pad(countdown.hours)} />
+                <CountBox label="Minutos" value={pad(countdown.minutes)} />
+                <CountBox label="Segundos" value={pad(countdown.seconds)} />
               </div>
 
-              <div className="mt-5 flex flex-col gap-4 w-full max-w-[640px] mx-auto">
+              <div className="mt-4 flex flex-col gap-[14px] sm:mt-5 sm:max-w-[560px] sm:flex-row sm:gap-3">
                 <a
                   href="#rsvp"
-                  className="w-full inline-flex items-center justify-center rounded-full bg-white text-black px-6 py-4 text-[17px] sm:text-base font-semibold hover:scale-[1.01] transition-transform"
-                  style={{
-                    minHeight: "68px",
-                    boxShadow: "0 18px 44px rgba(32,20,47,0.14)",
-                  }}
+                  className="inline-flex w-full items-center justify-center rounded-full bg-white px-6 py-[20px] text-[18px] font-semibold text-black transition-transform hover:scale-[1.02] sm:py-4 sm:text-base"
                 >
                   Confirmar asistencia
                 </a>
@@ -1069,10 +1064,7 @@ export default function App() {
                   href={CEREMONY_MAP_URL}
                   target="_blank"
                   rel="noreferrer"
-                  className="w-full inline-flex items-center justify-center rounded-full border border-white/24 text-white px-6 py-4 text-[17px] sm:text-base font-medium bg-white/8 backdrop-blur-md hover:bg-white/12 transition-colors"
-                  style={{
-                    minHeight: "68px",
-                  }}
+                  className="inline-flex w-full items-center justify-center rounded-full border border-white/24 bg-white/8 px-6 py-[20px] text-[18px] font-medium text-white backdrop-blur-md transition-colors hover:bg-white/12 sm:py-4 sm:text-base"
                 >
                   Ver ubicación
                 </a>
