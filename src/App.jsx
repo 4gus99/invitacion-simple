@@ -613,7 +613,7 @@ function DressCodeModal({ open, onClose }) {
   return (
     <AnimatePresence>
       <motion.div
-        className="fixed inset-0 z-[140] flex items-end sm:items-center justify-center px-3 sm:px-4 py-0 sm:py-6"
+        className="fixed inset-0 z-[140] flex items-end sm:items-center justify-center px-0 sm:px-4 py-0 sm:py-6"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
@@ -627,14 +627,14 @@ function DressCodeModal({ open, onClose }) {
         />
 
         <motion.div
-          initial={{ opacity: 0, y: 20, scale: 0.99 }}
+          initial={{ opacity: 0, y: 28, scale: 0.99 }}
           animate={{ opacity: 1, y: 0, scale: 1 }}
-          exit={{ opacity: 0, y: 20, scale: 0.99 }}
-          transition={{ duration: 0.24 }}
-          className="relative z-10 w-full max-w-3xl max-h-[88vh] overflow-y-auto rounded-t-[26px] sm:rounded-[30px] border overflow-hidden"
+          exit={{ opacity: 0, y: 28, scale: 0.99 }}
+          transition={{ duration: 0.22 }}
+          className="relative z-10 w-full max-w-2xl max-h-[86vh] overflow-y-auto rounded-t-[28px] sm:rounded-[30px] border overflow-hidden"
           style={{
             borderColor: theme.line,
-            background: theme.bandBgSoft,
+            background: "linear-gradient(180deg, rgba(255,255,255,0.96) 0%, rgba(247,240,252,0.98) 100%)",
             boxShadow: theme.softShadow,
           }}
         >
@@ -643,61 +643,69 @@ function DressCodeModal({ open, onClose }) {
               type="button"
               onClick={onClose}
               className="absolute right-3 top-3 sm:right-4 sm:top-4 inline-flex h-9 w-9 sm:h-10 sm:w-10 items-center justify-center rounded-full border text-lg"
-              style={{ borderColor: theme.line, color: theme.accentStrong, background: "rgba(255,255,255,0.78)" }}
+              style={{ borderColor: theme.line, color: theme.accentStrong, background: "rgba(255,255,255,0.88)" }}
             >
               ×
             </button>
 
-            <div className="pr-12">
-              <p className="text-[10px] sm:text-[11px] uppercase tracking-[0.28em] sm:tracking-[0.30em]" style={{ color: theme.textSoft }}>
+            <div className="pr-10">
+              <p className="text-[10px] sm:text-[11px] uppercase tracking-[0.30em]" style={{ color: theme.textSoft }}>
                 Dress code
               </p>
-              <h3 className="mt-3 font-serif text-[25px] sm:text-[40px] leading-[1.04]" style={{ color: theme.accentStrong }}>
-                Elegante, luminoso y cómodo
+              <h3 className="mt-3 font-serif text-[28px] sm:text-[38px] leading-[1.04]" style={{ color: theme.accentStrong }}>
+                Formal y delicado
               </h3>
-              <p className="mt-3 text-[14px] sm:text-[16px] leading-7" style={{ color: theme.textSoft }}>
-                Queremos una estética cuidada, fresca y natural. La idea es que se sientan lindos, cómodos y en sintonía con el lugar.
+              <p className="mt-3 text-[14px] sm:text-[15px] leading-7" style={{ color: theme.textSoft }}>
+                Queremos una estética elegante, fresca y natural, pensada para una celebración de día.
               </p>
             </div>
           </div>
 
           <div className="px-4 py-4 sm:px-7 sm:py-6">
-            <div className="grid gap-3 sm:gap-4 md:grid-cols-2">
+            <div className="grid gap-3">
               <div
-                className="rounded-[20px] sm:rounded-[24px] border px-4 sm:px-5 py-4 sm:py-5"
-                style={{ borderColor: theme.line, background: "rgba(255,255,255,0.72)" }}
+                className="rounded-[20px] border px-4 py-4"
+                style={{ borderColor: theme.line, background: "rgba(255,255,255,0.84)" }}
               >
-                <p className="text-[11px] sm:text-[12px] uppercase tracking-[0.20em] sm:tracking-[0.24em]" style={{ color: theme.accentStrong }}>
-                  Sí
+                <p className="text-[11px] uppercase tracking-[0.22em]" style={{ color: theme.accentStrong }}>
+                  Sugerido
                 </p>
-                <ul className="mt-3 sm:mt-4 space-y-2 sm:space-y-3 text-[14px] sm:text-[16px] leading-7" style={{ color: theme.text }}>
-                  <li>• Tonos nude, pasteles, beige y suaves, como lila o lavanda</li>
-                  <li>• Telas livianas y cortes elegantes</li>
-                  <li>• Calzado cómodo para exterior</li>
-                </ul>
+                <p className="mt-2 text-[14px] sm:text-[15px] leading-7" style={{ color: theme.text }}>
+                  Tonos nude, pasteles, beige, lavanda o colores suaves.
+                </p>
               </div>
 
               <div
-                className="rounded-[20px] sm:rounded-[24px] border px-4 sm:px-5 py-4 sm:py-5"
-                style={{ borderColor: theme.line, background: "rgba(255,255,255,0.72)" }}
+                className="rounded-[20px] border px-4 py-4"
+                style={{ borderColor: theme.line, background: "rgba(255,255,255,0.84)" }}
               >
-                <p className="text-[11px] sm:text-[12px] uppercase tracking-[0.20em] sm:tracking-[0.24em]" style={{ color: theme.accentStrong }}>
+                <p className="text-[11px] uppercase tracking-[0.22em]" style={{ color: theme.accentStrong }}>
+                  Prioridad
+                </p>
+                <p className="mt-2 text-[14px] sm:text-[15px] leading-7" style={{ color: theme.text }}>
+                  Verse elegante pero sentirse cómodo durante toda la ceremonia.
+                </p>
+              </div>
+
+              <div
+                className="rounded-[20px] border px-4 py-4"
+                style={{ borderColor: theme.line, background: "rgba(255,255,255,0.84)" }}
+              >
+                <p className="text-[11px] uppercase tracking-[0.22em]" style={{ color: theme.accentStrong }}>
                   Mejor evitar
                 </p>
-                <ul className="mt-3 sm:mt-4 space-y-2 sm:space-y-3 text-[14px] sm:text-[16px] leading-7" style={{ color: theme.text }}>
-                  <li>• Looks demasiado deportivos</li>
-                  <li>• Prendas incómodas para un día largo</li>
-                  <li>• Calzado poco práctico para terreno natural</li>
-                </ul>
+                <p className="mt-2 text-[14px] sm:text-[15px] leading-7" style={{ color: theme.text }}>
+                  Ropa deportiva, looks demasiado informales o calzado incómodo para exterior.
+                </p>
               </div>
             </div>
 
             <div
-              className="mt-3 sm:mt-4 rounded-[18px] sm:rounded-[22px] border px-4 sm:px-5 py-4"
-              style={{ borderColor: theme.line, background: "rgba(255,255,255,0.52)" }}
+              className="mt-4 rounded-[18px] border px-4 py-4"
+              style={{ borderColor: theme.line, background: "rgba(255,255,255,0.60)" }}
             >
-              <p className="text-[14px] sm:text-[15px] leading-7" style={{ color: theme.textSoft }}>
-                Mendoza en enero puede ser cálido, así que conviene priorizar frescura y comodidad sin perder elegancia.
+              <p className="text-[13px] sm:text-[14px] leading-7" style={{ color: theme.textSoft }}>
+                La idea es mantener una estética armónica con el entorno y la celebración.
               </p>
             </div>
           </div>
@@ -730,6 +738,17 @@ export default function App() {
   useEffect(() => {
     const interval = setInterval(() => setCountdown(getCountdown(EVENT_DATE)), 1000);
     return () => clearInterval(interval);
+  }, []);
+
+  useEffect(() => {
+    let link = document.querySelector('link[rel="icon"]');
+    if (!link) {
+      link = document.createElement("link");
+      link.rel = "icon";
+      document.head.appendChild(link);
+    }
+    link.type = "image/gif";
+    link.href = "/favicon.gif";
   }, []);
 
   useEffect(() => {
@@ -1094,10 +1113,20 @@ export default function App() {
               subtitle="Formal"
             />
 
-            <div className="mt-8">
-              <OutlineButton as="button" onClick={() => setShowDressCodeModal(true)}>
+            <div className="mt-8 flex justify-center px-4">
+              <button
+                type="button"
+                onClick={() => setShowDressCodeModal(true)}
+                className="w-full sm:w-auto max-w-[320px] inline-flex items-center justify-center rounded-full border px-6 py-4 text-[13px] sm:text-[14px] uppercase tracking-[0.14em] transition-all hover:-translate-y-[1px]"
+                style={{
+                  borderColor: theme.accentMuted,
+                  color: theme.accentStrong,
+                  background: "rgba(255,255,255,0.72)",
+                  boxShadow: "0 14px 34px rgba(95,63,120,0.08)",
+                }}
+              >
                 Ver detalles del dress code
-              </OutlineButton>
+              </button>
             </div>
           </div>
         </Reveal>
