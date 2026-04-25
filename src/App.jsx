@@ -139,22 +139,22 @@ function Reveal({ children, delay = 0 }) {
 function CountBox({ value, label }) {
   return (
     <div
-      className="flex h-[86px] w-full flex-col items-center justify-center rounded-[22px] px-2 py-3 text-center backdrop-blur-xl sm:h-[98px] md:h-[112px]"
+      className="min-w-0 h-[92px] sm:h-[118px] rounded-[26px] sm:rounded-[28px] px-1 py-3 sm:px-2 sm:py-4 text-center backdrop-blur-xl flex flex-col items-center justify-center overflow-hidden"
       style={{
-        background: "rgba(255,255,255,0.84)",
-        border: "1px solid rgba(255,255,255,0.34)",
-        boxShadow: "0 18px 48px rgba(31,20,46,0.10)",
+        background: "rgba(255,255,255,0.86)",
+        border: `1px solid rgba(255,255,255,0.42)`,
+        boxShadow: "0 16px 42px rgba(32, 20, 47, 0.14)",
       }}
     >
       <div
-        className="font-serif text-[31px] leading-none tracking-[0.03em] sm:text-[34px] md:text-[42px]"
+        className="font-serif text-[37px] sm:text-[42px] md:text-[50px] leading-none"
         style={{ color: "#432953" }}
       >
         {value}
       </div>
 
       <div
-        className="mt-2 whitespace-nowrap text-[10px] uppercase leading-none tracking-[0.18em] sm:text-[11px] sm:tracking-[0.22em]"
+        className="mt-2 text-[8px] sm:text-[10px] uppercase tracking-[0.09em] sm:tracking-[0.16em] leading-none whitespace-nowrap max-w-full"
         style={{ color: "#7d6193" }}
       >
         {label}
@@ -186,7 +186,7 @@ function FloatingPetals() {
             top: "-10%",
             width: `${petal.size}px`,
             height: `${petal.size * 0.72}px`,
-            background: "rgba(255, 233, 242, 0.34)",
+            background: "linear-gradient(180deg, rgba(248, 238, 255, 0.92), rgba(220, 194, 239, 0.84))",
             borderRadius: "70% 30% 70% 30% / 60% 40% 60% 40%",
             filter: "blur(0.2px)",
             transform: `rotate(${petal.rotate}deg)`,
@@ -725,7 +725,7 @@ function DressCodeModal({ open, onClose }) {
 export default function App() {
   const [countdown, setCountdown] = useState(getCountdown(EVENT_DATE));
   const [musicOn, setMusicOn] = useState(false);
-  const [hasEntered, setHasEntered] = useState(true);
+  const [hasEntered, setHasEntered] = useState(false);
   const [showPayment, setShowPayment] = useState(false);
   const [showLodging, setShowLodging] = useState(false);
   const [showMobileCta, setShowMobileCta] = useState(false);
@@ -962,50 +962,51 @@ export default function App() {
         ) : null}
       </AnimatePresence>
 
-      <header className="fixed top-0 inset-x-0 z-40 px-5 pt-5 sm:px-6 sm:pt-5">
+      <header className="fixed top-0 inset-x-0 z-40 px-6 pt-5 sm:px-5 sm:pt-5">
         <div
-          className="mx-auto flex h-[64px] max-w-7xl items-center justify-between gap-3 rounded-full border px-5 backdrop-blur-xl sm:h-[68px] sm:px-6"
+          className="mx-auto max-w-7xl rounded-full h-[64px] sm:h-[68px] px-5 sm:px-5 border backdrop-blur-xl flex items-center justify-between gap-3"
           style={{
-            background: "rgba(255,255,255,0.58)",
+            background: "rgba(255,255,255,0.72)",
             borderColor: "rgba(67,37,83,0.12)",
-            boxShadow: "0 14px 35px rgba(31,20,46,0.10)",
+            boxShadow: "0 12px 34px rgba(31,20,46,0.08)",
           }}
         >
-          <div className="flex min-w-0 items-center gap-3">
-            <Heart size={19} color="#432953" strokeWidth={1.8} />
+          <div className="flex items-center gap-3 min-w-0">
+            <Heart size={19} color="#5d3f75" />
             <span
-              className="truncate text-[18px] font-medium tracking-[0.01em] sm:text-[20px]"
-              style={{ color: "#432953" }}
+              className="text-[17px] sm:text-[18px] truncate"
+              style={{
+                color: "#432953",
+                fontFamily: "Montserrat, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif",
+                letterSpacing: "0",
+                fontWeight: 400,
+              }}
             >
               Rodo & Vicky
             </span>
           </div>
 
-          <div className="flex items-center gap-2">
-            <button
-              onClick={toggleMusic}
-              className="flex h-12 w-12 items-center justify-center rounded-full border transition-transform hover:scale-[1.02]"
-              style={{
-                background: "rgba(255,255,255,0.84)",
-                borderColor: "rgba(67,37,83,0.12)",
-                boxShadow: "0 8px 24px rgba(31,20,46,0.08)",
-              }}
-              aria-label={musicOn ? "Silenciar música" : "Activar música"}
-              title={musicOn ? "Silenciar música" : "Activar música"}
-            >
-              {musicOn ? (
-                <Volume2 size={22} color="#432953" />
-              ) : (
-                <VolumeX size={22} color="#432953" />
-              )}
-            </button>
-          </div>
+          <button
+            type="button"
+            onClick={toggleMusic}
+            className="w-[52px] h-[52px] sm:w-[54px] sm:h-[54px] rounded-full border flex items-center justify-center hover:scale-[1.02] transition-transform shrink-0"
+            style={{
+              background: "rgba(255,255,255,0.92)",
+              borderColor: "rgba(67,37,83,0.10)",
+              boxShadow: "0 10px 24px rgba(31,20,46,0.08)",
+              color: "#5d3f75",
+            }}
+            aria-label={musicOn ? "Silenciar música" : "Activar música"}
+            title={musicOn ? "Silenciar música" : "Activar música"}
+          >
+            {musicOn ? <Volume2 size={22} /> : <VolumeX size={22} />}
+          </button>
         </div>
       </header>
 
       <section
         ref={heroRef}
-        className="relative h-[100svh] min-h-[100svh] overflow-hidden px-4 pb-0 pt-0 sm:px-6"
+        className="relative h-[100svh] min-h-[680px] px-0 overflow-hidden"
       >
         <div
           className="absolute inset-0"
@@ -1015,6 +1016,7 @@ export default function App() {
             backgroundPosition: "center center",
           }}
         />
+
         <div
           className="absolute inset-0"
           style={{ backgroundColor: "rgba(67,37,83,0.40)" }}
@@ -1022,32 +1024,43 @@ export default function App() {
 
         <FloatingPetals />
 
-        <div className="relative z-10 mx-auto h-[100svh] max-w-7xl">
+        <div className="relative z-10 h-full max-w-7xl mx-auto px-[30px] sm:px-6">
           <Reveal>
-            <div className="absolute left-4 right-4 top-[174px] max-w-3xl sm:left-6 sm:right-auto sm:top-[152px]">
-              <h1 className="font-serif whitespace-nowrap text-[58px] font-[600] leading-[0.86] tracking-[0.02em] text-white sm:text-[78px] md:text-[118px]">
+            <div className="pt-[178px] sm:pt-[150px] md:pt-[170px]">
+              <h1
+                className="font-serif whitespace-nowrap text-white font-[600]"
+                style={{
+                  fontSize: "clamp(56px, 17vw, 72px)",
+                  lineHeight: "0.9",
+                  letterSpacing: "0.02em",
+                }}
+              >
                 Rodo & Vicky
               </h1>
 
-              <p className="mt-2 uppercase tracking-[0.35em] text-[13px] text-white/70 sm:text-sm">
+              <p className="mt-3 uppercase tracking-[0.35em] text-[11px] sm:text-xs text-white/70 whitespace-nowrap">
                 12 de enero · Mendoza
               </p>
             </div>
           </Reveal>
 
           <Reveal delay={0.08}>
-            <div className="absolute bottom-[28px] left-4 right-4 sm:bottom-[26px] sm:left-6 sm:right-6">
-              <div className="grid w-full grid-cols-4 gap-3 sm:max-w-[560px] sm:gap-4">
-                <CountBox label="Días" value={pad(countdown.days)} />
-                <CountBox label="Horas" value={pad(countdown.hours)} />
-                <CountBox label="Minutos" value={pad(countdown.minutes)} />
-                <CountBox label="Segundos" value={pad(countdown.seconds)} />
+            <div className="absolute left-0 right-0 bottom-[22px] px-[30px] sm:px-6">
+              <div className="grid grid-cols-4 gap-[14px] sm:gap-4 w-full max-w-[560px] mx-auto">
+                <CountBox label="DÍAS" value={pad(countdown.days)} />
+                <CountBox label="HORAS" value={pad(countdown.hours)} />
+                <CountBox label="MINUTOS" value={pad(countdown.minutes)} />
+                <CountBox label="SEGUNDOS" value={pad(countdown.seconds)} />
               </div>
 
-              <div className="mt-5 flex w-full flex-col gap-4">
+              <div className="mt-5 flex flex-col gap-4 w-full max-w-[640px] mx-auto">
                 <a
                   href="#rsvp"
-                  className="inline-flex w-full items-center justify-center rounded-full bg-white px-6 py-[18px] text-[17px] font-semibold text-black transition-transform hover:scale-[1.02] sm:text-base"
+                  className="w-full inline-flex items-center justify-center rounded-full bg-white text-black px-6 py-4 text-[17px] sm:text-base font-semibold hover:scale-[1.01] transition-transform"
+                  style={{
+                    minHeight: "68px",
+                    boxShadow: "0 18px 44px rgba(32,20,47,0.14)",
+                  }}
                 >
                   Confirmar asistencia
                 </a>
@@ -1056,7 +1069,10 @@ export default function App() {
                   href={CEREMONY_MAP_URL}
                   target="_blank"
                   rel="noreferrer"
-                  className="inline-flex w-full items-center justify-center rounded-full border border-white/24 bg-white/8 px-6 py-[18px] text-[17px] font-medium text-white backdrop-blur-sm transition-colors hover:bg-white/12 sm:text-base"
+                  className="w-full inline-flex items-center justify-center rounded-full border border-white/24 text-white px-6 py-4 text-[17px] sm:text-base font-medium bg-white/8 backdrop-blur-md hover:bg-white/12 transition-colors"
+                  style={{
+                    minHeight: "68px",
+                  }}
                 >
                   Ver ubicación
                 </a>
