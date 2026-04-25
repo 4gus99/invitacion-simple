@@ -139,17 +139,24 @@ function Reveal({ children, delay = 0 }) {
 function CountBox({ value, label }) {
   return (
     <div
-      className="rounded-[28px] px-3 py-4 sm:px-4 sm:py-5 text-center backdrop-blur-md"
+      className="flex h-[86px] w-full flex-col items-center justify-center rounded-[22px] px-2 py-3 text-center backdrop-blur-xl sm:h-[98px] md:h-[112px]"
       style={{
-        background: "linear-gradient(180deg, rgba(255,255,255,0.92) 0%, rgba(247,241,251,0.86) 100%)",
-        border: `1px solid ${theme.line}`,
-        boxShadow: "0 16px 42px rgba(32, 20, 47, 0.14)",
+        background: "rgba(255,255,255,0.84)",
+        border: "1px solid rgba(255,255,255,0.34)",
+        boxShadow: "0 18px 48px rgba(31,20,46,0.10)",
       }}
     >
-      <div className="font-serif text-[30px] sm:text-[42px] md:text-[50px] leading-none" style={{ color: theme.text }}>
+      <div
+        className="font-serif text-[31px] leading-none tracking-[0.03em] sm:text-[34px] md:text-[42px]"
+        style={{ color: "#432953" }}
+      >
         {value}
       </div>
-      <div className="mt-2 text-[10px] sm:text-[11px] tracking-[0.32em] uppercase" style={{ color: theme.textSoft }}>
+
+      <div
+        className="mt-2 text-[10px] uppercase leading-none tracking-[0.28em] sm:text-[11px]"
+        style={{ color: "#7d6193" }}
+      >
         {label}
       </div>
     </div>
@@ -179,7 +186,7 @@ function FloatingPetals() {
             top: "-10%",
             width: `${petal.size}px`,
             height: `${petal.size * 0.72}px`,
-            background: "linear-gradient(180deg, rgba(248, 238, 255, 0.92), rgba(220, 194, 239, 0.84))",
+            background: "rgba(255, 233, 242, 0.34)",
             borderRadius: "70% 30% 70% 30% / 60% 40% 60% 40%",
             filter: "blur(0.2px)",
             transform: `rotate(${petal.rotate}deg)`,
@@ -955,31 +962,42 @@ export default function App() {
         ) : null}
       </AnimatePresence>
 
-      <header className="fixed top-0 inset-x-0 z-40 px-3 pt-3 sm:px-5 sm:pt-5">
+      <header className="fixed top-0 inset-x-0 z-40 px-5 pt-5 sm:px-6 sm:pt-5">
         <div
-          className="max-w-7xl mx-auto rounded-full px-3 py-2.5 sm:px-5 sm:py-3 border backdrop-blur-xl flex items-center justify-between gap-3 shadow-[0_14px_34px_rgba(31,20,46,0.10)]"
+          className="mx-auto flex h-[64px] max-w-7xl items-center justify-between gap-3 rounded-full border px-5 backdrop-blur-xl sm:h-[68px] sm:px-6"
           style={{
             background: "rgba(255,255,255,0.58)",
-            borderColor: theme.line,
+            borderColor: "rgba(67,37,83,0.12)",
+            boxShadow: "0 14px 35px rgba(31,20,46,0.10)",
           }}
         >
-          <div className="flex items-center gap-2 min-w-0">
-            <Heart size={15} color={theme.accentStrong} />
-            <span className="font-serif text-[18px] sm:text-[28px] tracking-[0.08em] truncate" style={{ color: theme.accentStrong }}>Rodo & Vicky</span>
+          <div className="flex min-w-0 items-center gap-3">
+            <Heart size={19} color="#432953" strokeWidth={1.8} />
+            <span
+              className="truncate text-[18px] font-medium tracking-[0.01em] sm:text-[20px]"
+              style={{ color: "#432953" }}
+            >
+              Rodo & Vicky
+            </span>
           </div>
 
           <div className="flex items-center gap-2">
             <button
               onClick={toggleMusic}
-              className="w-10 h-10 rounded-full border flex items-center justify-center hover:scale-[1.02] transition-transform"
+              className="flex h-12 w-12 items-center justify-center rounded-full border transition-transform hover:scale-[1.02]"
               style={{
-                background: "rgba(255,255,255,0.82)",
-                borderColor: theme.line,
+                background: "rgba(255,255,255,0.84)",
+                borderColor: "rgba(67,37,83,0.12)",
+                boxShadow: "0 8px 24px rgba(31,20,46,0.08)",
               }}
               aria-label={musicOn ? "Silenciar música" : "Activar música"}
               title={musicOn ? "Silenciar música" : "Activar música"}
             >
-              {musicOn ? <Volume2 size={18} /> : <VolumeX size={18} />}
+              {musicOn ? (
+                <Volume2 size={22} color="#432953" />
+              ) : (
+                <VolumeX size={22} color="#432953" />
+              )}
             </button>
           </div>
         </div>
@@ -987,49 +1005,49 @@ export default function App() {
 
       <section
         ref={heroRef}
-        className="relative min-h-screen px-4 sm:px-6 pt-20 sm:pt-28 pb-3 sm:pb-6 overflow-hidden"
+        className="relative h-[100svh] min-h-[100svh] overflow-hidden px-4 pb-0 pt-0 sm:px-6"
       >
         <div
           className="absolute inset-0"
           style={{
             backgroundImage: "url(/images/wedding/aero.jpg)",
             backgroundSize: "cover",
-            backgroundPosition: "center",
+            backgroundPosition: "center center",
           }}
         />
         <div
           className="absolute inset-0"
-          style={{ background: `linear-gradient(180deg, rgba(44,29,59,0.14) 0%, ${theme.heroOverlay} 72%, rgba(253,249,255,0.26) 100%)` }}
+          style={{ backgroundColor: "rgba(67,37,83,0.40)" }}
         />
 
         <FloatingPetals />
 
-        <div className="relative z-10 max-w-7xl mx-auto min-h-[calc(100svh-6rem)] flex flex-col justify-between">
+        <div className="relative z-10 mx-auto h-[100svh] max-w-7xl">
           <Reveal>
-            <div className="max-w-3xl pt-3 sm:pt-6">
-              <h1 className="mt-6 font-serif text-[58px] leading-[0.88] tracking-[0.02em] sm:text-[88px] md:text-[128px] text-white font-[600]">
+            <div className="absolute left-4 right-4 top-[174px] max-w-3xl sm:left-6 sm:right-auto sm:top-[152px]">
+              <h1 className="font-serif text-[58px] font-[600] leading-[0.86] tracking-[0.02em] text-white sm:text-[78px] md:text-[118px]">
                 Rodo & Vicky
               </h1>
 
-              <p className="uppercase tracking-[0.35em] text-[11px] sm:text-xs text-white/78 mt-3">
+              <p className="mt-2 uppercase tracking-[0.35em] text-[13px] text-white/70 sm:text-sm">
                 12 de enero · Mendoza
               </p>
             </div>
           </Reveal>
 
           <Reveal delay={0.08}>
-            <div className="w-full mt-auto pb-4 sm:pb-6">
-              <div className="grid grid-cols-4 gap-2 sm:gap-4 w-full justify-items-stretch">
+            <div className="absolute bottom-[28px] left-4 right-4 sm:bottom-[26px] sm:left-6 sm:right-6">
+              <div className="grid w-full grid-cols-4 gap-3 sm:max-w-[560px] sm:gap-4">
                 <CountBox label="Días" value={pad(countdown.days)} />
                 <CountBox label="Horas" value={pad(countdown.hours)} />
                 <CountBox label="Minutos" value={pad(countdown.minutes)} />
                 <CountBox label="Segundos" value={pad(countdown.seconds)} />
               </div>
 
-              <div className="mt-5 sm:mt-6 flex flex-col gap-3 w-full">
+              <div className="mt-5 flex w-full flex-col gap-4">
                 <a
                   href="#rsvp"
-                  className="w-full inline-flex items-center justify-center rounded-full bg-white text-black px-6 py-4 text-[15px] sm:text-base font-semibold hover:scale-[1.02] transition-transform"
+                  className="inline-flex w-full items-center justify-center rounded-full bg-white px-6 py-[18px] text-[17px] font-semibold text-black transition-transform hover:scale-[1.02] sm:text-base"
                 >
                   Confirmar asistencia
                 </a>
@@ -1038,7 +1056,7 @@ export default function App() {
                   href={CEREMONY_MAP_URL}
                   target="_blank"
                   rel="noreferrer"
-                  className="w-full inline-flex items-center justify-center rounded-full border border-white/24 text-white px-6 py-4 text-[15px] sm:text-base font-medium bg-white/8 backdrop-blur-sm hover:bg-white/12 transition-colors"
+                  className="inline-flex w-full items-center justify-center rounded-full border border-white/24 bg-white/8 px-6 py-[18px] text-[17px] font-medium text-white backdrop-blur-sm transition-colors hover:bg-white/12 sm:text-base"
                 >
                   Ver ubicación
                 </a>
