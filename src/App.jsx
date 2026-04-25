@@ -154,7 +154,7 @@ function CountBox({ value, label }) {
       </div>
 
       <div
-        className="mt-2 text-[10px] uppercase leading-none tracking-[0.28em] sm:text-[11px]"
+        className="mt-2 whitespace-nowrap text-[10px] uppercase leading-none tracking-[0.18em] sm:text-[11px] sm:tracking-[0.22em]"
         style={{ color: "#7d6193" }}
       >
         {label}
@@ -1025,7 +1025,7 @@ export default function App() {
         <div className="relative z-10 mx-auto h-[100svh] max-w-7xl">
           <Reveal>
             <div className="absolute left-4 right-4 top-[174px] max-w-3xl sm:left-6 sm:right-auto sm:top-[152px]">
-              <h1 className="font-serif text-[58px] font-[600] leading-[0.86] tracking-[0.02em] text-white sm:text-[78px] md:text-[118px]">
+              <h1 className="font-serif whitespace-nowrap text-[58px] font-[600] leading-[0.86] tracking-[0.02em] text-white sm:text-[78px] md:text-[118px]">
                 Rodo & Vicky
               </h1>
 
