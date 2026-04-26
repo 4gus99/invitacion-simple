@@ -1044,7 +1044,7 @@ export default function App() {
           <Reveal delay={0.08}>
             <div
               className="absolute left-[24px] right-[24px]"
-              style={{ bottom: "calc(env(safe-area-inset-bottom) + 2px)" }}
+              style={{ bottom: "calc(env(safe-area-inset-bottom) - 14px)" }}
             >
               <div className="grid w-full grid-cols-4 gap-[8px]">
                 <CountBox label="Días" value={pad(countdown.days)} />
