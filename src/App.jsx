@@ -1020,7 +1020,7 @@ export default function App() {
 
         <div className="relative z-10 h-[100dvh] min-h-[100dvh] w-full">
           <Reveal>
-            <div className="absolute left-[24px] right-[24px] top-[102px]">
+            <div className="absolute left-[24px] right-[24px] top-[154px]">
               <h1
                 className="font-serif whitespace-nowrap text-white font-[600]"
                 style={{
