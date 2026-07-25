@@ -62,7 +62,7 @@ const lodgingOptions = [
     title: "Esplendor by Wyndham Mendoza",
     phone: "+54 261 481 9850",
     address: "Emilio Civit y Maza, Maipú, Mendoza",
-    distance: "En la Ruta del Vino de Maipú",
+    distance: "Aprox. 10 km del lugar",
     cta: "Ver hospedaje",
     href: "https://esplendormendoza.com/",
   },
