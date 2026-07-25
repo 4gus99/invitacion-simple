@@ -825,7 +825,7 @@ export default function App() {
 
   const whatsappMessage = useMemo(() => {
     return encodeURIComponent(
-      `Hola! Confirmo mi asistencia a la ceremonia boda.\n\nNombre: ${form.nombre || "-"}\nCanción sugerida: ${form.cancion || "-"}\nMensaje: ${form.mensaje || "-"}`
+      `Hola! Confirmo mi asistencia a la ceremonia.\n\nNombre: ${form.nombre || "-"}\nCanción sugerida: ${form.cancion || "-"}\nMensaje: ${form.mensaje || "-"}`
     );
   }, [form]);
 
