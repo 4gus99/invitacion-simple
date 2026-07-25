@@ -12,12 +12,11 @@ import {
   Gift,
 } from "lucide-react";
 
-const EVENT_DATE = new Date("2027-01-09T11:00:00");
+const EVENT_DATE = new Date("2027-01-14T10:00:00");
 
 const RSVP_PHONE_BRIDE = "5492901309424";
 const RSVP_PHONE_GROOM = "5492901403076";
-const CEREMONY_MAP_URL =
-  "https://www.google.com/maps/place/Caba%C3%B1as+Pacar%C3%AD+Tamp%C3%BA/@-32.8533001,-68.8958719,3a,75y,90t/data=!3m8!1e2!3m6!1sAF1QipOR1aDQGhlCQQATDaaT2c9CIsDR8BBy4QFee2Ba!2e10!3e12!6shttps:%2F%2Flh3.googleusercontent.com%2Fp%2FAF1QipOR1aDQGhlCQQATDaaT2c9CIsDR8BBy4QFee2Ba%3Dw203-h152-k-no!7i2240!8i1680!4m10!3m9!1s0x967e08060b4dc929:0xf27b0a8b70ae5093!5m2!4m1!1i2!8m2!3d-32.853288!4d-68.8956999!10e5!16s%2Fg%2F11b6dh6xkp!18m1!1e1?entry=ttu&g_ep=EgoyMDI2MDQwMS4wIKXMDSoASAFQAw%3D%3D";
+const CEREMONY_MAP_URL = "https://maps.app.goo.gl/YfsrQFnJ7EsLCDni6?g_st=ic";
 const PARTY_MAP_URL = CEREMONY_MAP_URL;
 const MUSIC_URL = "/music/musica.mp3";
 
@@ -734,7 +733,6 @@ export default function App() {
   const [form, setForm] = useState({
     nombre: "",
     cancion: "",
-    restricciones: "",
     mensaje: "",
   });
 
@@ -842,7 +840,7 @@ export default function App() {
 
   const whatsappMessage = useMemo(() => {
     return encodeURIComponent(
-      `Hola! Confirmo mi asistencia a la ceremonia boda.\n\nNombre: ${form.nombre || "-"}\nCanción sugerida: ${form.cancion || "-"}\nRestricciones alimentarias: ${form.restricciones || "Ninguna"}\nMensaje: ${form.mensaje || "-"}`
+      `Hola! Confirmo mi asistencia a la ceremonia boda.\n\nNombre: ${form.nombre || "-"}\nCanción sugerida: ${form.cancion || "-"}\nMensaje: ${form.mensaje || "-"}`
     );
   }, [form]);
 
@@ -1036,7 +1034,7 @@ export default function App() {
                 className="mt-[6px] whitespace-nowrap uppercase text-white/72"
                 style={{ fontSize: "10.5px", letterSpacing: "0.24em" }}
               >
-                12 de enero · Mendoza
+                14 de enero · Mendoza
               </p>
             </div>
           </Reveal>
@@ -1390,20 +1388,6 @@ export default function App() {
                         className="w-full rounded-[18px] px-4 py-3.5 outline-none"
                         style={{ background: "rgba(255,255,255,0.86)", border: `1px solid ${theme.line}`, boxShadow: "inset 0 1px 0 rgba(255,255,255,0.7)" }}
                         placeholder="Tema para bailar"
-                      />
-                    </label>
-
-                    <label className="block text-left">
-                      <span className="block text-sm mb-2" style={{ color: theme.textSoft }}>
-                        Restricciones alimentarias
-                      </span>
-                      <textarea
-                        rows={3}
-                        value={form.restricciones}
-                        onChange={(e) => setForm({ ...form, restricciones: e.target.value })}
-                        className="w-full rounded-[18px] px-4 py-3.5 outline-none resize-none"
-                        style={{ background: "rgba(255,255,255,0.86)", border: `1px solid ${theme.line}`, boxShadow: "inset 0 1px 0 rgba(255,255,255,0.7)" }}
-                        placeholder="Alergias, intolerancias, vegetariano, etc."
                       />
                     </label>
 
