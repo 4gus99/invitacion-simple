@@ -934,7 +934,14 @@ export default function App() {
               </p>
               <button
                 type="button"
-                onClick={() => setHasEntered(true)}
+                onClick={() => {
+                  setHasEntered(true);
+                  const audio = audioRef.current;
+                  if (audio && audio.paused) {
+                    audio.volume = 0.18;
+                    audio.play().then(() => setMusicOn(true)).catch(() => setMusicOn(false));
+                  }
+                }}
                 className="mt-10 rounded-full px-10 py-4 text-white text-[16px] sm:text-[18px] font-semibold uppercase tracking-[0.18em]"
                 style={{ background: theme.accentStrong, boxShadow: "0 18px 46px rgba(95,63,120,0.22)" }}
               >
