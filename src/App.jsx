@@ -138,23 +138,16 @@ function Reveal({ children, delay = 0 }) {
 function CountBox({ value, label }) {
   return (
     <div
-      className="flex min-w-0 flex-col items-center justify-center rounded-[28px] px-1 text-center backdrop-blur-xl h-[96px] overflow-hidden"
-      style={{
-        background: "rgba(255,255,255,0.90)",
-        border: `1px solid rgba(67,37,83,0.12)`,
-        boxShadow: "0 12px 30px rgba(32, 20, 47, 0.08)",
-      }}
+      className="flex flex-col items-center justify-center text-center rounded-[20px] px-2 py-3 sm:px-4 sm:py-5 min-h-[55px] sm:min-h-[160px] w-full"
+      style={{ background: theme.cardStrong, border: `1px solid ${theme.line}` }}
     >
-      <div
-        className="font-serif text-[30px] leading-none"
-        style={{ color: "#432953", letterSpacing: "0.01em" }}
-      >
+      <div className="text-[28px] sm:text-[34px] md:text-[42px] font-serif tracking-[0.03em] leading-none">
         {value}
       </div>
 
       <div
-        className="mt-[7px] max-w-full whitespace-nowrap text-[7.5px] uppercase leading-none"
-        style={{ color: "#7d6193", letterSpacing: "0.06em" }}
+        className="mt-2 text-[9px] sm:text-[11px] uppercase tracking-[0.16em] sm:tracking-[0.18em] leading-none text-center"
+        style={{ color: theme.textSoft }}
       >
         {label}
       </div>
@@ -960,38 +953,32 @@ export default function App() {
         ) : null}
       </AnimatePresence>
 
-      <header className="fixed inset-x-0 top-0 z-40 px-[24px] pt-[18px]">
+      <header className="fixed top-0 inset-x-0 z-40 px-3 pt-3 sm:px-5 sm:pt-5">
         <div
-          className="mx-auto flex max-w-7xl items-center justify-between gap-3 rounded-full border px-[26px] py-[14px] backdrop-blur-xl"
+          className="max-w-7xl mx-auto rounded-full px-3 py-2 sm:px-4 sm:py-3 border backdrop-blur-xl flex items-center justify-between gap-3"
           style={{
-            background: "rgba(255,255,255,0.62)",
-            borderColor: "rgba(67,37,83,0.12)",
+            background: theme.card,
+            borderColor: theme.line,
           }}
         >
-          <div className="flex min-w-0 items-center gap-3">
-            <Heart size={22} color="#5d3f75" strokeWidth={1.9} />
-            <span
-              className="truncate text-[20px]"
-              style={{ color: "#5d3f75" }}
-            >
-              Rodo & Vicky
-            </span>
+          <div className="flex items-center gap-2 min-w-0">
+            <Heart size={16} />
+            <span className="text-sm sm:text-[40px] truncate">Rodo & Vicky</span>
           </div>
 
           <div className="flex items-center gap-2">
             <button
               type="button"
               onClick={toggleMusic}
-              className="flex h-[64px] w-[64px] shrink-0 items-center justify-center rounded-full border transition-transform hover:scale-[1.02]"
+              className="w-10 h-10 rounded-full border flex items-center justify-center hover:scale-[1.02] transition-transform"
               style={{
-                background: "rgba(255,255,255,0.86)",
-                borderColor: "rgba(67,37,83,0.12)",
-                color: "#5d3f75",
+                background: theme.cardStrong,
+                borderColor: theme.line,
               }}
               aria-label={musicOn ? "Silenciar música" : "Activar música"}
               title={musicOn ? "Silenciar música" : "Activar música"}
             >
-              {musicOn ? <Volume2 size={24} /> : <VolumeX size={24} />}
+              {musicOn ? <Volume2 size={18} /> : <VolumeX size={18} />}
             </button>
           </div>
         </div>
