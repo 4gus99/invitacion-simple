@@ -999,7 +999,7 @@ export default function App() {
 
       <section
         ref={heroRef}
-        className="relative h-[100dvh] min-h-[100dvh] overflow-hidden"
+        className="relative min-h-screen px-4 sm:px-6 pt-20 sm:pt-28 pb-3 sm:pb-6 overflow-hidden"
       >
         <div
           className="absolute inset-0"
@@ -1016,45 +1016,32 @@ export default function App() {
 
         <FloatingPetals />
 
-        <div className="relative z-10 h-[100dvh] min-h-[100dvh] w-full">
+        <div className="relative z-10 max-w-7xl mx-auto min-h-[calc(100svh-6rem)] flex flex-col justify-between">
           <Reveal>
-            <div className="absolute left-[24px] right-[24px] top-[154px]">
-              <h1
-                className="font-serif whitespace-nowrap text-white font-[600]"
-                style={{
-                  fontSize: "clamp(3.1rem, 13.6vw, 4rem)",
-                  lineHeight: 0.88,
-                  letterSpacing: "-0.01em",
-                }}
-              >
+            <div className="max-w-3xl pt-2 sm:pt-4">
+              <h1 className="mt-4 font-serif text-[52px] leading-[0.9] tracking-[0.02em] sm:text-[78px] md:text-[118px] text-white font-[600]">
                 Rodo & Vicky
               </h1>
 
-              <p
-                className="mt-[6px] whitespace-nowrap uppercase text-white/72"
-                style={{ fontSize: "10.5px", letterSpacing: "0.24em" }}
-              >
+              <p className="uppercase tracking-[0.35em] text-[11px] sm:text-xs text-white/70">
                 14 de enero · Mendoza
               </p>
             </div>
           </Reveal>
 
           <Reveal delay={0.08}>
-            <div
-              className="absolute left-[24px] right-[24px]"
-              style={{ bottom: "calc(env(safe-area-inset-bottom) - 14px)" }}
-            >
-              <div className="grid w-full grid-cols-4 gap-[8px]">
+            <div className="w-full mt-auto pb-1 sm:pb-2">
+              <div className="grid grid-cols-4 gap-2 sm:gap-4 max-w-[560px] justify-items-stretch">
                 <CountBox label="Días" value={pad(countdown.days)} />
                 <CountBox label="Horas" value={pad(countdown.hours)} />
                 <CountBox label="Minutos" value={pad(countdown.minutes)} />
                 <CountBox label="Segundos" value={pad(countdown.seconds)} />
               </div>
 
-              <div className="mt-[8px] flex flex-col gap-[8px]">
+              <div className="mt-4 sm:mt-5 flex flex-col sm:flex-row gap-3">
                 <a
                   href="#rsvp"
-                  className="inline-flex h-[66px] w-full items-center justify-center rounded-full bg-white px-6 text-[17px] font-semibold text-black transition-transform hover:scale-[1.02]"
+                  className="inline-flex items-center justify-center rounded-full bg-white text-black px-6 py-4 text-[15px] sm:text-base font-semibold hover:scale-[1.02] transition-transform"
                 >
                   Confirmar asistencia
                 </a>
@@ -1063,7 +1050,7 @@ export default function App() {
                   href={CEREMONY_MAP_URL}
                   target="_blank"
                   rel="noreferrer"
-                  className="inline-flex h-[64px] w-full items-center justify-center rounded-full border border-white/24 bg-white/8 px-6 text-[16px] font-medium text-white backdrop-blur-md transition-colors hover:bg-white/12"
+                  className="inline-flex items-center justify-center rounded-full border border-white/24 text-white px-6 py-4 text-[15px] sm:text-base font-medium bg-white/8 backdrop-blur-sm hover:bg-white/12 transition-colors"
                 >
                   Ver ubicación
                 </a>
