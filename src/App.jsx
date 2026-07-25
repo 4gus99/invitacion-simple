@@ -612,7 +612,7 @@ function DressCodeModal({ open, onClose }) {
   return (
     <AnimatePresence>
       <motion.div
-        className="fixed inset-0 z-[140] flex items-end sm:items-center justify-center px-0 sm:px-4 py-0 sm:py-6"
+        className="fixed inset-0 z-[140] flex items-center justify-center px-4 py-6"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
@@ -630,7 +630,7 @@ function DressCodeModal({ open, onClose }) {
           animate={{ opacity: 1, y: 0, scale: 1 }}
           exit={{ opacity: 0, y: 28, scale: 0.99 }}
           transition={{ duration: 0.22 }}
-          className="relative z-10 w-full max-w-2xl max-h-[86vh] overflow-y-auto rounded-t-[28px] sm:rounded-[30px] border overflow-hidden"
+          className="relative z-10 w-full max-w-2xl max-h-[86vh] overflow-y-auto rounded-[28px] border overflow-hidden"
           style={{
             borderColor: theme.line,
             background: "linear-gradient(180deg, rgba(255,255,255,0.96) 0%, rgba(247,240,252,0.98) 100%)",
