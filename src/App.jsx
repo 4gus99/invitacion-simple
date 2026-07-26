@@ -70,7 +70,7 @@ const lodgingOptions = [
 
 const paymentData = [
   { label: "Adultos", value: "$85.000" },
-  { label: "Menores de 12 años", value: "$6.000" },
+  { label: "Menores de 12 años", value: "$60.000" },
   { label: "Bebés", value: "No pagan" },
   { label: "Alias", value: "CABO.BECADO.ORDEN" },
   { label: "CBU", value: "0170299840000034075432" },
