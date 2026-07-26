@@ -91,9 +91,7 @@ const secondCarouselImages = [
   "/images/wedding/11.jpg",
   "/images/wedding/12.jpg",
   "/images/wedding/13.jpg",
-  "/images/wedding/14.jpg",
   "/images/wedding/15.jpg",
-  "/images/wedding/16.jpg",
   "/images/wedding/17.jpg",
 ];
 
