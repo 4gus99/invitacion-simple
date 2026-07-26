@@ -69,7 +69,9 @@ const lodgingOptions = [
 ];
 
 const paymentData = [
-  { label: "Valor tarjeta", value: "$75.000 por adulto" },
+  { label: "Adultos", value: "$85.000" },
+  { label: "Menores de 12 años", value: "$6.000" },
+  { label: "Bebés", value: "No pagan" },
   { label: "Alias", value: "CABO.BECADO.ORDEN" },
   { label: "CBU", value: "0170299840000034075432" },
   { label: "Banco", value: "BBVA Francés" },
